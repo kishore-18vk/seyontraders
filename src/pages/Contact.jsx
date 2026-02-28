@@ -1,24 +1,13 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { MdPhone, MdEmail, MdPlace, MdSend } from 'react-icons/md';
 import { FaWhatsapp } from 'react-icons/fa';
 import './PageStyles.css';
 
-// ─── EmailJS Config ───────────────────────────────────────────────
-// 1. Go to https://www.emailjs.com and sign up FREE with seyontraders06@gmail.com
-// 2. Add a Gmail service → copy the Service ID below
-// 3. Create an Email Template → copy the Template ID below
-// 4. Go to Account → API Keys → copy your Public Key below
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';   // e.g. service_abc123
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. template_xyz456
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';   // e.g. abcDEFghiJKL
-// ─────────────────────────────────────────────────────────────────
+const RECEIVER_EMAIL = 'seyontraders06@gmail.com';
 
 const Contact = () => {
     const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
     const [submitted, setSubmitted] = useState(false);
-    const [sending, setSending] = useState(false);
-    const [sendError, setSendError] = useState('');
     const [errors, setErrors] = useState({});
 
     const validate = () => {
@@ -31,37 +20,31 @@ const Contact = () => {
 
     const handleChange = (ev) => setForm({ ...form, [ev.target.name]: ev.target.value });
 
-    const handleSubmit = async (ev) => {
+    const handleSubmit = (ev) => {
         ev.preventDefault();
         const e = validate();
         if (Object.keys(e).length > 0) { setErrors(e); return; }
         setErrors({});
-        setSending(true);
-        setSendError('');
 
-        const templateParams = {
-            from_name: form.name,
-            from_email: form.email,
-            phone: form.phone || 'Not provided',
-            subject: form.subject || 'New Enquiry from Website',
-            message: form.message,
-            to_email: 'seyontraders06@gmail.com',
-        };
+        // Build the email body
+        const body = [
+            `Name: ${form.name}`,
+            `Email: ${form.email}`,
+            `Phone: ${form.phone || 'Not provided'}`,
+            ``,
+            `Message:`,
+            form.message,
+        ].join('\n');
 
-        try {
-            await emailjs.send(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
-                templateParams,
-                EMAILJS_PUBLIC_KEY
-            );
-            setSubmitted(true);
-        } catch (err) {
-            console.error('EmailJS error:', err);
-            setSendError('Failed to send message. Please call us directly or email seyontraders06@gmail.com');
-        } finally {
-            setSending(false);
-        }
+        const subject = encodeURIComponent(form.subject || 'New Enquiry from Seyon Traders Website');
+        const bodyEncoded = encodeURIComponent(body);
+        const mailtoLink = `mailto:${RECEIVER_EMAIL}?subject=${subject}&body=${bodyEncoded}`;
+
+        // Open the visitor's email client with everything pre-filled
+        window.location.href = mailtoLink;
+
+        // Mark as submitted after short delay
+        setTimeout(() => setSubmitted(true), 500);
     };
 
     return (
@@ -195,19 +178,9 @@ const Contact = () => {
                                         {errors.message && <span className="form-error">{errors.message}</span>}
                                     </div>
 
-                                    {sendError && (
-                                        <div style={{
-                                            background: '#fff3f3', border: '1px solid #f88', borderRadius: '8px',
-                                            padding: '12px 16px', marginBottom: '16px', color: '#c00', fontSize: '0.85rem'
-                                        }}>
-                                            ⚠️ {sendError}
-                                        </div>
-                                    )}
-
-                                    <button type="submit" className="btn-primary form-submit-btn" disabled={sending}
-                                        style={{ opacity: sending ? 0.7 : 1, cursor: sending ? 'wait' : 'pointer' }}>
+                                    <button type="submit" className="btn-primary form-submit-btn">
                                         <MdSend style={{ marginRight: '8px', verticalAlign: 'middle' }} />
-                                        {sending ? 'SENDING...' : 'SEND MESSAGE'}
+                                        SEND MESSAGE
                                     </button>
                                 </form>
                             )}

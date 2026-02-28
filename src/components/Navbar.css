@@ -31,31 +31,13 @@
     text-decoration: none;
 }
 
-.logo-icon {
-    flex-shrink: 0;
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-}
-
-.logo-main {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.35rem;
-    color: #ffffff;
-    letter-spacing: 3px;
-}
-
-.logo-sub {
-    font-family: var(--font-heading);
-    font-weight: 300;
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.85);
-    letter-spacing: 4px;
-    margin-top: 2px;
+.logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #fff;
+    padding: 2px 4px;
 }
 
 /* Nav Links */

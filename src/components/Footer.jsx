@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { MdEmail, MdPhone, MdPlace } from 'react-icons/md';
+import seyonLogo from '../assets/seyon_logo.jpg';
 import './Footer.css';
 
 const Footer = () => {
@@ -27,16 +28,7 @@ const Footer = () => {
                         {/* Brand */}
                         <div className="footer-brand">
                             <div className="footer-logo">
-                                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="22" cy="22" r="21" stroke="white" strokeWidth="1.5" />
-                                    <path d="M22 7C22 7 12 17 12 25C12 30.5 16.5 35 22 35C27.5 35 32 30.5 32 25C32 17 22 7 22 7Z" fill="white" fillOpacity="0.9" />
-                                    <path d="M22 14C22 14 16 21 16 26C16 29.3 18.7 32 22 32C25.3 32 28 29.3 28 26C28 21 22 14 22 14Z" fill="#2dba6e" />
-                                    <line x1="22" y1="25" x2="22" y2="37" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-                                </svg>
-                                <div>
-                                    <span className="foot-logo-main">SEYON</span>
-                                    <span className="foot-logo-sub">TRADERS</span>
-                                </div>
+                                <img src={seyonLogo} alt="Seyon Traders Logo" className="footer-logo-img" />
                             </div>
                             <p className="footer-tagline">
                                 Producing high quality coir products and providing sustainable growing solutions to help crops thrive worldwide.

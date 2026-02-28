@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import seyonLogo from '../assets/seyon_logo.jpg';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -32,20 +33,7 @@ const Navbar = () => {
             <div className="nav-container">
                 {/* Logo */}
                 <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
-                    <div className="logo-icon">
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="18" cy="18" r="17" stroke="white" strokeWidth="1.5" />
-                            <path d="M18 6C18 6 10 14 10 20C10 24.4 13.6 28 18 28C22.4 28 26 24.4 26 20C26 14 18 6 18 6Z" fill="white" fillOpacity="0.9" />
-                            <path d="M18 12C18 12 13 17.5 13 21C13 23.8 15.2 26 18 26C20.8 26 23 23.8 23 21C23 17.5 18 12 18 12Z" fill="#2dba6e" />
-                            <line x1="18" y1="20" x2="18" y2="30" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-                            <line x1="14" y1="22" x2="18" y2="24" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
-                            <line x1="22" y1="22" x2="18" y2="24" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
-                        </svg>
-                    </div>
-                    <div className="logo-text">
-                        <span className="logo-main">SEYON</span>
-                        <span className="logo-sub">TRADERS</span>
-                    </div>
+                    <img src={seyonLogo} alt="Seyon Traders Logo" className="logo-img" />
                 </Link>
 
                 {/* Desktop nav */}
