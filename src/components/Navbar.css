@@ -1,0 +1,248 @@
+/* ─── Navbar ─── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--green-primary);
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    flex-shrink: 0;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-main {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: #ffffff;
+    letter-spacing: 3px;
+}
+
+.logo-sub {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 4px;
+    margin-top: 2px;
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: 26px 18px;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.92);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: #fff;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #fff;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.dropdown-arrow {
+    font-size: 0.7rem;
+    margin-left: 4px;
+}
+
+/* Dropdown */
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: all 0.25s ease;
+    z-index: 999;
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 12px 20px;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--heading-color);
+    transition: all 0.2s;
+}
+
+.dropdown-link:hover {
+    background: var(--green-primary);
+    color: #fff;
+    padding-left: 28px;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    background: var(--green-dark);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.mobile-menu.open {
+    max-height: 600px;
+}
+
+.mobile-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-link {
+    display: block;
+    padding: 15px 24px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.mobile-dropdown {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.mobile-dropdown-link {
+    display: block;
+    padding: 10px 36px;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
