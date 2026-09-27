@@ -17,10 +17,10 @@ const Navbar = () => {
         { label: 'ABOUT', path: '/about' },
         {
             label: 'PRODUCTS', path: '/products', dropdown: [
-                { label: 'Coir Pith / Cocopeat', path: '/products/cocopeat' },
-                { label: 'Coir Fibre', path: '/products/coir-fibre' },
-                { label: 'Husk Chips', path: '/products/husk-chips' },
-                { label: 'Grow Bags', path: '/products/grow-bags' },
+                { label: 'All Products', path: '/products' },
+                { label: 'Cocopeat Blocks & Pith', path: '/products/cocopeat' },
+                { label: 'Coconut Husk Chips', path: '/products/husk-chips' },
+                { label: 'Natural Coir Fibre', path: '/products/coir-fibre' },
             ]
         },
         { label: 'PROCESS', path: '/process' },

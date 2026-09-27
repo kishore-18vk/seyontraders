@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import naturalCoirFibre from '../assets/products/natural_coir_fibre.jpeg';
 import './PageStyles.css';
 
 const Sustainability = () => {
@@ -35,10 +36,30 @@ const Sustainability = () => {
                                 Coir fibre is a completely natural, biodegradable, and renewable resource. By choosing Seyon Traders, our customers are already making a positive choice for the environment. We take that responsibility seriously and continue to improve our practices every year.
                             </p>
                         </div>
-                        <div className="sustain-visual">
-                            <div className="sustain-circle">
-                                <span className="sustain-big-icon">🌿</span>
-                                <span className="sustain-label">ECO-CERTIFIED</span>
+                        <div className="sustain-visual" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 12px 32px rgba(0,0,0,0.1)' }}>
+                            <img
+                                src={naturalCoirFibre}
+                                alt="100% Natural Golden Coir Fibre"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '340px', display: 'block' }}
+                            />
+                            <div style={{
+                                position: 'absolute',
+                                bottom: '20px',
+                                left: '20px',
+                                right: '20px',
+                                background: 'rgba(255, 255, 255, 0.95)',
+                                backdropFilter: 'blur(8px)',
+                                padding: '12px 18px',
+                                borderRadius: '8px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px'
+                            }}>
+                                <span style={{ fontSize: '1.4rem' }}>🌿</span>
+                                <div>
+                                    <strong style={{ display: 'block', color: 'var(--heading-color)', fontSize: '0.88rem' }}>100% Biodegradable &amp; Renewable</strong>
+                                    <span style={{ fontSize: '0.75rem', color: 'var(--text-gray)' }}>Zero chemical residues · Naturally rot-resistant</span>
+                                </div>
                             </div>
                         </div>
                     </div>

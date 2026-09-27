@@ -1,43 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import naturalCoirFibre from '../assets/products/natural_coir_fibre.jpeg';
+import coirHuskChipsCut from '../assets/products/coir_husk_chips_cut.jpeg';
+import looseCocopeatHand from '../assets/products/loose_cocopeat_hand.jpeg';
+import coconutHuskChips from '../assets/products/coconut_husk_chips.jpeg';
+import cocopeatExpanded from '../assets/products/cocopeat_block_expanded.jpeg';
+import cocopeat5kg from '../assets/products/cocopeat_block_5kg.jpeg';
 import './PageStyles.css';
 
 const processSteps = [
     {
         num: '01',
         title: 'RAW MATERIAL SOURCING',
-        desc: 'We ethically source mature coconut husks directly from trusted farmers and cooperatives across Tamil Nadu and Kerala. Our strong farmer relationships ensure consistent quality and supply throughout the year.',
-        icon: '🥥',
+        desc: 'We ethically source mature coconut husks directly from trusted farmers and cooperatives across Tamil Nadu. Our local Kangayam roots ensure fresh, non-saline husks of consistent quality all year round.',
+        img: naturalCoirFibre,
     },
     {
         num: '02',
         title: 'DEFIBERING & SCREENING',
-        desc: 'The husks go through a defibering machine that separates the long fibres from the coir pith (cocopeat). The material is then screened to remove impurities and to achieve the desired particle size.',
-        icon: '⚙️',
+        desc: 'The husks go through modern defibering machines separating golden coir fibre from coir pith (cocopeat). Vibratory sieves filter out sand and short fibres according to exact mesh specifications.',
+        img: coirHuskChipsCut,
     },
     {
         num: '03',
         title: 'WASHING & BUFFERING',
-        desc: 'Cocopeat is washed multiple times to remove excess salts and then buffered with calcium nitrate to ensure optimal EC and pH levels suitable for growing applications.',
-        icon: '💧',
+        desc: 'Cocopeat is washed multiple times with fresh water to desalt and remove excess sodium and potassium ions, achieving electrical conductivity (EC) below 0.5 mS/cm and a neutral pH of 5.5–6.8.',
+        img: looseCocopeatHand,
     },
     {
         num: '04',
-        title: 'DRYING',
-        desc: 'Material is sun-dried and mechanically dried to achieve the target moisture content, ensuring product stability and preventing microbial growth during storage and transport.',
-        icon: '☀️',
+        title: 'SUN DRYING & CURING',
+        desc: 'Substrates are sun-dried on clean concrete drying yards under Tamil Nadu sunshine until moisture drops below 15%, ensuring long-term product stability and eliminating bacterial growth.',
+        img: coconutHuskChips,
     },
     {
         num: '05',
-        title: 'QUALITY TESTING',
-        desc: 'Every batch is tested in our in-house lab for EC, pH, moisture content, and wettability before being approved for packaging. We never ship without quality clearance.',
-        icon: '🔬',
+        title: 'LAB TESTING & INSPECTION',
+        desc: 'Every production batch is tested in-house for EC (salinity), pH, expansion ratio, weed-seed absence, and air-filled porosity before receiving quality certification.',
+        img: cocopeatExpanded,
     },
     {
         num: '06',
-        title: 'COMPRESSION & PACKAGING',
-        desc: 'Products are compressed into blocks, bales, or filled into grow bags as per customer specification and packed in HDPE bags or PP woven bags for safe sea or air freight.',
-        icon: '📦',
+        title: 'HYDRAULIC COMPRESSION & EXPORT PACKING',
+        desc: 'Material is compressed at 5:1 ratio into 5kg blocks, 4.5kg husk blocks, or loose poly-sacks with custom palletising and shrink-wrapping for secure maritime shipping worldwide.',
+        img: cocopeat5kg,
     },
 ];
 
@@ -48,7 +54,7 @@ const Process = () => {
                 <div className="container">
                     <span className="section-tag" style={{ color: 'rgba(255,255,255,0.65)' }}>HOW WE WORK</span>
                     <h1 className="page-hero-title">OUR PROCESS</h1>
-                    <p className="page-hero-sub">From coconut husk to premium growing substrate – handled with care at every step.</p>
+                    <p className="page-hero-sub">From Tamil Nadu coconut husk to premium growing substrate – handled with care at every step.</p>
                 </div>
             </section>
 
@@ -58,8 +64,8 @@ const Process = () => {
                         {processSteps.map((s, i) => (
                             <div key={i} className={`process-full-item ${i % 2 === 1 ? 'reverse' : ''}`}>
                                 <div className="process-full-visual">
-                                    <div className="process-full-num">{s.num}</div>
-                                    <div className="process-full-emoji">{s.icon}</div>
+                                    <span className="process-step-num-pill">{s.num}</span>
+                                    <img src={s.img} alt={s.title} className="process-step-img" loading="lazy" />
                                 </div>
                                 <div className="process-full-content">
                                     <h3 className="process-full-title">{s.title}</h3>

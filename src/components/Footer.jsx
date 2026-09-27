@@ -58,10 +58,11 @@ const Footer = () => {
                         <div className="footer-col">
                             <h4 className="footer-col-title">Products</h4>
                             <ul className="footer-links">
-                                <li><Link to="/products/cocopeat">Coir Pith / Cocopeat</Link></li>
-                                <li><Link to="/products/coir-fibre">Coir Fibre</Link></li>
-                                <li><Link to="/products/husk-chips">Husk Chips</Link></li>
-                                <li><Link to="/products/grow-bags">Grow Bags</Link></li>
+                                <li><Link to="/products/cocopeat">5 KG Cocopeat Block</Link></li>
+                                <li><Link to="/products/cocopeat">Washed Loose Coir Pith</Link></li>
+                                <li><Link to="/products/husk-chips">Coconut Husk Chips</Link></li>
+                                <li><Link to="/products/husk-chips">Husk Chip Block (4.5kg)</Link></li>
+                                <li><Link to="/products/coir-fibre">Natural Golden Coir Fibre</Link></li>
                             </ul>
                         </div>
 
